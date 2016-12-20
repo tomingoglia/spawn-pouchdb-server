@@ -50,10 +50,11 @@ function spawnPouchdbServer (options, callback) {
 
     if (options.verbose) console.log('starting pouchdb-server %s', pouchDbServerArgs.join(' '))
 
-    var startlog = tmp.tmpNameSync()
+    var startlog = 'TAM-' + tmp.tmpNameSync()
+    var startlogerr = 'TAM-' + tmp.tmpNameSync() + '-ERROR'
 
     var pouchDbServer = spawn(pouchDbBinPath, pouchDbServerArgs, {
-      stdio: ['ignore', fs.openSync(startlog, 'w+'), process.stderr]
+      stdio: ['ignore', fs.openSync(startlog, 'a+'), fs.openSync(startlogerr, 'a+')]
     })
 
     var timeout = setTimeout(function () {

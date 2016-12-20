@@ -2,6 +2,7 @@
   "name": "spawn-pouchdb-server",
   "description": "Configurable per-app pouchdb-server as a drop-in replacement for CouchDB",
   "main": "index.js",
+  "version": "3.3.2",
   "scripts": {
     "test": "standard && nyc npm run -s test:node",
     "test:node": "node test | tap-spec",

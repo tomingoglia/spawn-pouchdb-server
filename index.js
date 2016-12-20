@@ -50,8 +50,8 @@ function spawnPouchdbServer (options, callback) {
 
     if (options.verbose) console.log('starting pouchdb-server %s', pouchDbServerArgs.join(' '))
 
-    var startlog = 'TAM-' + tmp.tmpNameSync()
-    var startlogerr = 'TAM-' + tmp.tmpNameSync() + '-ERROR'
+    var startlog = tmp.tmpNameSync() + '-PDB'
+    var startlogerr = tmp.tmpNameSync() + '-PDB-ERROR'
 
     var pouchDbServer = spawn(pouchDbBinPath, pouchDbServerArgs, {
       stdio: ['ignore', fs.openSync(startlog, 'a+'), fs.openSync(startlogerr, 'a+')]
